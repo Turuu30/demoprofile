@@ -78,14 +78,24 @@ a:hover{
 .contentProfile{
     padding: 35px;
     width: 1200px;
+    height: 1000px;
     position: relative;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     margin: auto;
+    animation: contentProfile 3s ease;
 }
-
+@keyframes contentProfile {
+    0%{
+        transform: translateX(500px);
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
 /* talarhaliin heseg */
 .talarhaliinPart{
     width: 100%;
@@ -95,23 +105,24 @@ a:hover{
     align-items: center;
     background-color:#edeeee;
     color:#525b88;
-    flex-direction: row;
     font-size: 25px;
     border-radius:10px;
     box-shadow: 5px 5px 10px;
-}
-/* #jumptreegif{
-    border-radius:10px 0 0 10px;
-    position: absolute;
+    transform: translateX(0);
+    animation: taralhal 2s ease;
+    /* position: absolute;
     left: 0;
-    height: 100%;
-    width: 150px;
-    z-index: 2;
-    background-image: linear-gradient(90deg ,transparent 65% , #edeeee 75%),
-        url("https://media1.giphy.com/media/l1KVcrdl7rJpFnY2s/giphy.gif?cid=ecf05e47wmivw3b8o06t7nycza1c728r1x6es55za4zohkjg&rid=giphy.gif&ct=g");
-    background-position: center;
-    background-size: 140%;
-} */
+    top: 0; */
+}
+@keyframes taralhal {
+    0%{
+        transform: translate(1500px);
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
 #thanksgif{
     height: 100%;
     width: 20%;
@@ -119,7 +130,6 @@ a:hover{
     border-radius:10px 0 0 10px;
 }
 .talarhal{
-    /* border: 1px solid black; */
     z-index: 1;
     width: 100%;
     height: 100%;
@@ -137,36 +147,40 @@ a:hover{
     font-family: 'Lobster', cursive;
     text-align: center;
     margin-left: 10%;
-    font-size: 150%;
+    font-size: 140%;
 }
 .talarhal p{
     font-family: 'Caveat', cursive;
     text-align: center;
     font-size: 100%;
-    /* width: calc(100% - 20px); */
-    /* margin: 0 10%; */
 }
 /* talarhaliin heseg */
 
 /* hereglegchiin ner  */
 .profilemember{
-    /* color:#525b88; */
     color: #21315a;
-    height: 10%;
-    display: flex;
-    align-items: center;
+    margin: 35px 0;
+    transform: translateX(0);
+    animation: profilemember 3s ease;
 }
 /* hereglegchiin ner  */
-
+@keyframes profilemember {
+    0%{
+        transform: translateX(-400px);
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
 .profileMain{
-    border: 1px solid pink;
+    box-sizing: border-box;
     width: 100%;
     height: 75%;
     display: flex;
     font-size: 30px;
     color:#525b88;
     border-radius:10px;
-    /* position:relative; */
 }
 /* ------------------------ */
 .modniizurag{
@@ -229,23 +243,27 @@ a:hover{
 }
 /* ------------------------- */
 .memberPart{
-    border: 1px solid black;
-    width: 70%;
-    height: 80%;
+    /* border: 1px solid black; */
+    width: 80%;
+    height: 90%;
     position: relative;
     top: 10%;
     left: -14%;
     z-index: 4;
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 10px;
+    border-radius: 20px;
 }
 .profileZurag{
-    z-index: 5;
+    z-index: 4;
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    left:5%;
-    top:5%;
-    position: absolute;  
+    position: relative;  
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .profileZurag-anima{
     position: absolute;
@@ -256,10 +274,10 @@ a:hover{
     margin: auto;
     width: 150%;
     height: 150%;
-    background-image: conic-gradient(transparent 100deg,  #228c22  140deg);
+    background-image: conic-gradient( #525b88  190deg, transparent 220deg);
     animation: rotate 3s linear infinite;    
     border-radius: 50%;
-
+    background-color: #13af49;
 }
 .memberZurag{
     width: 95%;
@@ -289,19 +307,101 @@ a:hover{
     height: 100%;
     border-radius: 50%;
 }
-#hereglegcNer{
-    position: absolute;
-    left:0;
-    top:0;
-    bottom: 0;
-    right: 0;
-    margin: auto;
-    width: auto;
-    height: 80px;
-    padding: 5px 10px;
+#memberName{
+    z-index: 1;
     background-color: #525b88;
-    color:#fdfefd;
-    margin-left: 20px;
+    color: #edeeee;
+    padding: 5px 10px 5px 30px;
+    position: absolute;
+    top: 10%;
+    left: 3%;
+    transform: translateX(90%);
+    animation: memberPart-animation 4s ease;
+}
+#addTree{
+    position: absolute;
+    top: 17%;
+    left: 5%;
+    background-color: #dc582a;
+    padding: 8px 10px;
+    border-radius:10px;
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+    transform: translateX(580%);
+    animation: memberPart-animation 3s ease-in;
+    z-index: 1;
+}
+#addTree:hover{
+    cursor: pointer;
+}
+#addTree::before{
+    transition: 0.5s all ease;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: "";
+    background-color:#13af49;
+    border-radius:10px;
+}
+#addTree:hover::before{
+    transition: 0.5s all ease;
+    right: 0;
+    left: 0;
+    opacity: 1;
+    z-index: -1;
+}
+#emailAdress{
+    background-color: #525b88;
+    color: #edeeee;
+    padding: 5px 10px 5px 30px;
+    position: absolute;
+    top: 22%;
+    left: 6%;
+    transform: translateX(190%);
+    animation: memberPart-animation 4s ease;
+}
+#treeNumber{
+    position: absolute;
+    top: 29%;
+    left: 5%;
+    background-color: #dc582a;
+    color:#282424;
+    padding: 8px 10px;
+    border-radius:10px;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    transform: translateX(310%);
+    animation: memberPart-animation 3s ease-in;
+}
+@keyframes memberPart-animation {
+    0%{ 
+        transform: translateX(0%);
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.graphic {
+    width: 40%;
+    margin-left: 30%;
+    transform: translateY(5%);
+    animation: graphic-animation 4s ease;
+}
+@keyframes graphic-animation {
+    0%{ 
+        transform: translateY(-30%);
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
 }
 .profileHeader{
     width: 100%;
@@ -363,7 +463,7 @@ background-repeat: no-repeat;
     color: white;
     border-radius: 10px;
 }
-.helloworld{
+/* .helloworld{
     width: 90%;
     height: 10%;
     margin-top: 2%;
@@ -372,7 +472,7 @@ background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
+} */
 .hereglegciinDelgerengui{
     width: 80%;
     height: 70%;
@@ -393,11 +493,6 @@ background-repeat: no-repeat;
     align-items: center;
     flex-direction: column;
     gap:10%
-}
-.graphic{
-    width: 90%;
-    height: auto;
-    border: 1px solid red;
 }
 .delgerenguiProfile{
     width: 90%;
@@ -466,12 +561,6 @@ background-repeat: no-repeat;
     height: 25%; 
     margin-left: 35%;
 } */
-#modnemeh{
-    background-color: #dc582a;
-    padding: 8px 10px;
-    border-radius:10px;
-    border: none;
-}
 /* .modniiTuhai p:nth-child(1){
     width: 55%;
     display: flex;
@@ -499,8 +588,3 @@ background-repeat: no-repeat;
     height: 25%;
     margin-left: 35%;
 } */
-
-.graphic {
-    width: 100%;
-    height: auto;
-}
